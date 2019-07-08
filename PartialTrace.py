@@ -1,0 +1,25 @@
+import numpy as np 
+I=np.diag(np.ones(2))
+#print(I)
+psi=np.array([[0.5],[0.5],[-0.5],[0.5]])
+bra=np.conj(psi).T
+X=np.outer(bra,psi)
+parTr=np.zeros((2,2))
+l=np.zeros((2,2))
+l[:,0]=np.array([1 , 0 ])
+#print(l[:,0].shape)   #(2,)
+l[:,1]=np.array([0 , 1 ]) 
+#Ibra0=np.kron(I,l[:,0].reshape(2,1)) output is (4,2) 
+Ibra0=np.kron(I,l[:,0].reshape(1,2))
+print(Ibra0)
+Ibra1=np.kron(I,l[:,1].reshape(1,2))
+#print(psi)
+Iket0=np.kron(I,l[:,0].reshape(2,1))
+Iket1=np.kron(I,l[:,1].reshape(2,1))
+#print(Ibra0)
+parTr=np.dot(np.dot(Ibra0,psi),np.dot(bra,Iket0)) + np.dot(np.dot(Ibra1,psi),np.dot(bra,Iket1))
+print(parTr)
+#l[1]=np.array([[0],[1]])
+#for i in range(2):
+	#parTr = parTr + np.kron(I,l[:,0]),
+#parTr = np.dot(np.dot(np.kron(I,l[:,0].reshape(1,2)),X),np.kron(I,l[:,0].reshape(2,1)))
