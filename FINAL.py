@@ -330,7 +330,8 @@ StateB = np.around ( stateB0.reshape(1,D) , decimals = 2)
 
 plt.text(0.5,0.5 ,( 'state A is :' + str(StateA)+ '\n' + 'state B is :' +str(StateB) ), fontsize = 11, ha='center') 
 
-plt.show()
+plt.show() 
+
 
 
 
